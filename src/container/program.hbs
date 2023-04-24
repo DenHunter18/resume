@@ -1,0 +1,155 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <div>
+        {{> title data='Program' big=true}}
+    </div>
+    <hr>
+    <section>
+
+        <ul>
+            <li>
+                {{#with program}}
+                <br>
+                <div>
+                    <h3>Excursion</h3>
+                </div>
+                <br>
+
+                {{#with excursion}}
+
+
+                <div><strong>Name:</strong> {{name}}</div>
+                <br>
+                <div><em><b>Location:</b></em> {{#with location}}</div>
+                <br>
+                <div><em><b>City:</b></em> {{city}}</div>
+                <div><em><b>Country:</b></em> {{country}}</div>
+                {{/with}}
+                <div><em><b>Date:</b></em> {{date}}</div>
+                <br>
+                <div><em><b>Program</b></em> </div>
+                <br>
+                {{#each program}}
+                <ul>
+                    <li>
+                        <div><b>Name:</b> {{name}}</div>
+                        <div><b>Type:</b> {{type}}</div>
+                        <div><b>Duration:</b> {{duration}}</div>
+                        <br>
+                        {{#if details.museum}}
+                        <details>
+                            Details museum:
+                            {{#with details.museum}}
+                            <br>
+                            <div>{{name}}</div>
+                            <br>
+                            <address>
+                                <div>Location: {{#with location}}</div>
+                                <ul>
+                                    <li>
+                                        <div>address: {{address}}</div>
+                                        <div>city: {{city}}</div>
+                                        <div>country: {{country}}</div>
+                                    </li>
+                                </ul>
+                                {{/with}}
+                            </address>
+
+                            <br>
+                            <p>Exhibits: {{#each exhibits}}</p>
+                            <ul>
+                                <li>
+                                    <p>Name: {{name}} /</p>
+                                    {{#if artist}}
+                                    <p>Artist: {{artist}}</p>
+                                    {{else}}
+                                    (artist unknow)
+                                    <br>
+                                    {{/if}}
+                                    <br>
+                                    <div>Description: </div>
+                                    <br>
+                                    {{#if audio_guide}}
+                                    (Audio guide exist)
+                                    {{/if}}
+                                    <br>
+
+                                </li>
+                            </ul>
+                            {{/each}}
+                            {{/with}}
+                        </details>
+                        {{/if}}
+
+                        <br>
+                        {{#if detail.venue}}
+                        <details>Details venue: {{#with detail.venue}}
+                            <div>{{name}}</div>
+                            <address>
+                                <div>Location: {{#with location}}</div>
+                                <ul>
+                                    <li>
+                                        <div>address: {{address}}</div>
+                                        <div>city: {{city}}</div>
+                                        <div>country: {{country}}</div>
+                                    </li>
+                                </ul>
+                                {{/with}}
+                            </address>
+                            {{/with}}
+
+                            {{/if}}
+                            <br>
+
+                            {{#if details.performers}}
+                            <div><em>Performers</em></div>
+                            <br>
+                            {{#each details.performers}}
+                    <li>
+                        <div>{{name}} / {{type}}</div>
+                    </li>
+                    {{/each}}
+                    {{/if}}
+                    </details>
+
+                    <br>
+                    <div><b><em>Guide:</em></b></div>
+                    {{#with details.guide}}
+                    <ul>
+                        <p>Name: <em>{{name}}</em></p>
+                        <p>Language: <em>{{language}}</em></p>
+                        <p>Rating: <em>{{rating}}</em></p>
+                    </ul>
+                    {{/with}}
+                </ul>
+
+
+
+                {{/each}}
+            </li>
+        </ul>
+        {{/with}}
+        </li>
+
+
+        </ul>
+        {{/with}}
+    </section>
+</div>
+
+
+
+
+
+
+
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
