@@ -1,0 +1,115 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <div>
+        {{> title data='Facebook' big=true}}
+    </div>
+    <br>
+    <hr>
+    <ul>
+        <div>
+            <div><b>Users:</b> {{#each users}}</div>
+
+            <ul>
+                <li>
+                    <div>id: <em> {{id}}</em></div>
+                    <div>name: <em> {{name}}</em></div>
+                    <div>gender: <em> {{gender}}</em></div>
+                    <div>age: <em> {{age}}</em></div>
+                    <br>
+                    <div><b>Friends:</b> {{#each friends}}</div>
+                    <ul>
+                        <li>
+                            <div>id: <em> {{id}}</em></div>
+                            <div>name: <em> {{name}}</em></div>
+                            <div>gender: <em> {{gender}}</em></div>
+                            <div>age: <em> {{age}}</em></div>
+                            <br>
+                            <div><b>Mutual_friends:</b> {{#each mutual_friends}}</div>
+                            <ul>
+                                <li>
+                                    <div>id: <em> {{id}}</em></div>
+                                    <div>name: <em> {{name}}</em></div>
+                                    <div>gender: <em> {{gender}}</em></div>
+                                    <div>age: <em> {{age}}</em></div>
+                                    <br>
+                                    {{#if mutual_friends}}
+                                    <div><b>Mutual_friends:</b> {{#each mutual_friends}}</div>
+                                    <ul>
+                                        <li>
+                                            <div>id: <em> {{id}}</em></div>
+                                            <div>name: <em> {{name}}</em></div>
+                                            <div>gender: <em> {{gender}}</em></div>
+                                            <div>age: <em> {{age}}</em></div>
+                                        </li>
+                                    </ul>
+                                    {{/each}}
+                                    {{/if}}
+                                </li>
+                            </ul>
+                            {{/each}}
+                            {{#if groups}}
+                            <br>
+                            <div><b>Groups:</b> {{#each groups}}</div>
+                            <ul>
+                                <li>
+                                    <div>id: <em> {{id}}</em></div>
+                                    <div>name: <em> {{name}}</em></div>
+                                    <div>description: <em> {{description}}</em></div>
+                                    <br>
+                                    <div><b>Members:</b> {{#each members}}</div>
+                                    <br>
+                                    <ul>
+                                        <li>
+                                            <div>id: <em> {{id}}</em></div>
+                                            <div>name: <em> {{name}}</em></div>
+                                            <div>gender: <em> {{gender}}</em></div>
+                                            <div>age: <em> {{age}}</em></div>
+                                        </li>
+                                    </ul>
+                                    {{/each}}
+                                </li>
+                            </ul>
+                            {{/each}}
+                            {{/if}}
+                        </li>
+                    </ul>
+                    {{/each}}
+                    <br>
+                    {{#if groups}}
+                    <br>
+                    <div><b>Groups:</b> {{#each groups}}</div>
+                    <ul>
+                        <li>
+                            <div>id: <em> {{id}}</em></div>
+                            <div>name: <em> {{name}}</em></div>
+                            <div>description: <em> {{description}}</em></div>
+                            <div><b>Members:</b> {{#each members}}</div>
+                            <ul>
+                                <li>
+                                    <div>id: <em> {{id}}</em></div>
+                                    <div>name: <em> {{name}}</em></div>
+                                    <div>gender: <em> {{gender}}</em></div>
+                                    <div>age: <em> {{age}}</em></div>
+                                </li>
+                            </ul>
+                            {{/each}}
+                        </li>
+                    </ul>
+                    {{/each}}
+                    {{/if}}
+                </li>
+            </ul>
+            {{/each}}
+        </div>
+    </ul>
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
