@@ -1,15 +1,12 @@
 <div>
     <div class="card">
         <div class="card-body">
-            <div class="display-1">Heading</div>
-            <br>
             <ul>{{#with heading}}
                 <div class="card">
                     <div class="card-body">
-                        <div class="display-3">Main</div>
                         <ul>{{#with main}}
-                            <div> {{title}}</div>
-                            <div> {{text}}</div>
+                            <h1 class="text-dark"> {{title}}</h1>
+                            <div class="text-muted"> {{text}}</div>
                             <br>
                             <ul>{{#with button_text}}
                                 <button class="btn btn-primary">{{solid}}</button>
@@ -25,11 +22,10 @@
                 <br>
                 <div class="card">
                     <div class="card-body">
-                        <div class="display-2">Second</div>
                         <br>
                         <ul>{{#with second}}
-                            <div> {{title}}</div>
-                            <div> {{text}}</div>
+                            <h2 class="text-dark"> {{title}}</h2>
+                            <div class="text-muted"> {{text}}</div>
                             <br>
                             <ul>{{#with button_text}}
                                 <button class="btn btn-secondary">{{solid}}</button>
@@ -45,21 +41,18 @@
                 <br>
                 <div class="card">
                     <div class="card-body">
-                        <div class="display-3">Subblock</div>
                         <br>
                         <ul>{{#with subblock}}
-                            <li>
-                                <div> {{title}}</div>
-                                <div> {{text}}</div>
+                            <h3 class="text-dark"> {{title}}</h3>
+                            <div class="text-muted"> {{text}}</div>
+                            <br>
+                            <ul>{{#with button_text}}
+                                <button class="btn btn-dark">{{solid}}</button>
                                 <br>
-                                <ul>{{#with button_text}}
-                                    <button class="btn btn-dark">{{solid}}</button>
-                                    <br>
-                                    <br>
-                                    <button class="btn btn-outline-dark">{{outline}}</button>
-                                </ul>
-                                {{/with}}
-                            </li>
+                                <br>
+                                <button class="btn btn-outline-dark">{{outline}}</button>
+                            </ul>
+                            {{/with}}
                         </ul>
                         {{/with}}
                     </div>
@@ -71,18 +64,17 @@
     <br>
     <div class="card">
         <div class="card-body">
-            <div class="display-1">Nested display</div>
             <br>
             <ul>{{#with nested_display}}
-                <div class="display-6">{{title}}</div>
                 <br>
+                <div class="display-1"> {{title}}</div>
                 <div class="card">
                     <div class="card-body">
-                        <div class="display-4">Children display</div>
                         <br>
                         <ul>{{#with children_display}}
-                            <div> {{title}}</div>
-                            <div> {{text}}</div>
+                            <div class="display-1"> {{title}}</div>
+                            <br>
+                            <div class="text-muted"> {{text}}</div>
                             <br>
                             <ul>{{#with button}}
                                 <br>
@@ -95,8 +87,7 @@
                 </div>
                 <br>
                 <ul>
-                    <div class="display-6">{{header_text}}
-                    </div>
+                    <h6 class="text-dark">{{header_text}}</h6>
                     <br>
                     <ul>{{#with button}}
                         <br>
@@ -111,11 +102,10 @@
     <br>
     <div class="card">
         <div class="card-body">
-            <div class="display-6 text-uppercase">paragraph</div>
             <br>
             <ul>{{#with paragraph}}
-                <div> {{title}}</div>
-                <div> {{text}}</div>
+                <div class="text-uppercase"> {{title}}</div>
+                <div class="text-muted"> {{text}}</div>
                 <br>
                 <ul>{{#with button}}
                     <a href="{{url}}" class="btn btn-link">
