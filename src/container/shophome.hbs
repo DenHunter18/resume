@@ -1,0 +1,142 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<section>
+    <div class="card col-12">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="row nav-item px-2">
+                <a href="{{href}}" class="nav-link" target="blank">{{text}}</a>
+            </div>
+            {{/each}}
+            <div class="pt-2 ps-2">Disabled</div>
+        </div>
+        {{/with}}
+    </div>
+</section>
+
+<section>
+    {{#with newsBlock}}
+    <h1 class="text-center mt-5 mb-2">{{title}}</h1>
+    <div class="row col-12">
+        {{#each cards}}
+        <ul class="card text-bg-dark col-3 me-0">
+            <div class="card-header">
+                <div>{{title}}</div>
+                {{#if isTop}}
+                <span class="badge text-bg-danger rounded-pill">Top</span>
+                {{/if}}
+                {{#if isNew}}
+                <span class="badge text-bg-success rounded-pill"> New</span>
+                {{/if}}
+            </div>
+            <p class="card-body p-2">{{description}}</p>
+        </ul>
+        {{/each}}
+    </div>
+    {{/with}}
+</section>
+
+<hr class="gx-5">
+
+<section>
+    <div class="col-12">
+        {{#with goodsBlock}}
+        <div class="nav nav-tabs">
+            {{#each tabs}}
+            <div class="row">
+                {{#if isActive}}
+                <div class="nav-item">
+                    <a href="#" class="nav-link active" target="blank">{{text}}</a>
+                </div>
+                {{else }}
+                <div class="nav-item">
+                    <a href="#" class="nav-link disabled" target="blank">{{text}}</a>
+                </div>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+        <div class="row col-12">
+            {{#each cards}}
+            <ul class="card col-4 my-3">
+                <img src="{{image}}">
+                <div>
+                    <div class="card-title">{{title}}</div>
+                    {{#if isHot}}
+                    <span class="badge text-bg-warning rounded-pill">Top</span>
+                    {{/if}}
+                    {{#if isNew}}
+                    <span class="badge text-bg-primary rounded-pill"> New</span>
+                    {{/if}}
+                </div>
+                <div class="card-body">{{description}}</div>
+            </ul>
+            {{/each}}
+        </div>
+        {{/with}}
+    </div>
+</section>
+
+<hr class="gx-5">
+
+<section>
+    <div class="col-12">{{#with subscribe}}
+        <div class="alert text-bg-dark">
+            <h2 class="p-2">{{header}}</h2>
+            <p>{{description}}</p>
+            {{#each buttons}}
+            <div class="flex-column p-2">
+                <a class="btn btn-primary" href="{{link}}" target="blank">{{text}}</a>
+            </div>
+            {{/each}}
+        </div>
+
+        {{/with}}
+    </div>
+</section>
+
+<hr class="gx-5">
+
+<section>
+    <div class="alert text-bg-success">
+        {{#with service}}
+        <div class="text-center">
+            <h2 class="p-2">{{title}}</h2>
+            <p>{{description}}</p>
+            <div>{{#each buttons}}
+                <a class="btn btn-primary" href="{{link}}" target="blank">{{text}}</a>
+                {{/each}}
+            </div>
+        </div>
+        {{/with}}
+    </div>
+</section>
+
+<hr class="gx-5">
+
+<footer>
+    <div class="row">
+        <ul class="nav">
+            {{#each footer}}
+            <div class="col-2">
+                {{#each this}}
+                <li class="nav-item px-3">
+                    <a class="nav-link {{#if @last}} disabled{{/if}}" target="blank">{{text}}</a>
+                </li>
+                {{/each}}
+            </div>
+            {{/each}}
+        </ul>
+    </div>
+</footer>
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
