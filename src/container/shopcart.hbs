@@ -1,0 +1,106 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<section class="mb-5">
+    <div class="card col-12">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="row nav-item px-2">
+                <a href="{{href}}" class="nav-link" target="blank">{{text}}</a>
+            </div>
+            {{/each}}
+            <div class="pt-2 ps-2">Disabled</div>
+        </div>
+        {{/with}}
+    </div>
+</section>
+<section>
+    {{#with header}}
+    <h1>{{title}}</h1>
+    {{#with button}}
+    <div class="col-3 mt-5 mb-5">
+        <button href="{{link}}" target="blank" class="btn btn-outline-secondary">{{text}}</button>
+    </div>
+    {{/with}}
+    {{/with}}
+</section>
+<hr>
+<section class="mt-5 mb-5">
+    {{#each goodsBlock}}
+    {{> cartGoodsItem}}
+    {{/each}}
+</section>
+<hr>
+<section class="mt-5 mb-5">
+    {{#with total}}
+    <h5 class="mb-3">{{title}}</h5>
+    <div class="display-5 mb-4">{{amount}}</div>
+    <div class="mb-4">{{delivery}}</div>
+    {{#each buttons}}
+    <div class="row">
+        {{#if isSuccess}}
+        <button href="{{link}}" target="blank" class="btn btn-success col-3 mb-3">{{text}}</button>
+        {{/if}}
+        {{#if isOutline}}
+        <button href="{{link}}" target="blank" class="btn btn-outline-success col-4 mb-3">{{text}}</button>
+        {{/if}}
+    </div>
+    {{/each}}
+    {{/with}}
+</section>
+<hr>
+<section class="mt-5 mb-5">
+    {{#with goodsOtherBlock}}
+    <h4 class="text-center m-3">{{title}}</h4>
+    <div class="row">
+        {{#each cards}}
+        <ul class="card col-4 my-3">
+            <img src="{{image}}">
+            <div>
+                <div class="card-title m-1">{{title}}</div>
+                {{#if isHot}}
+                <span class="badge text-bg-warning rounded-pill">HOT!</span>
+                {{/if}}
+                {{#if isNew}}
+                <span class="badge text-bg-primary rounded-pill"> Нове</span>
+                {{/if}}
+            </div>
+            <div class="card-body p-1">{{description}}</div>
+        </ul>
+        {{/each}}
+    </div>
+    {{/with}}
+</section>
+<hr>
+<section class="mt-5 mb-5">
+    {{#with subscribe}}
+    <div class="alert text-bg-dark">
+        <h2 class="ms-2 mt-2 mb-4">{{header}}</h2>
+        <div class="ms-2 mb-5">{{description}}</div>
+        {{#each buttons}}
+        <div class="row ms-2">
+            <button href="{{link}}" target="blank" class="btn btn-primary col-3 mb-3">{{text}}</button>
+        </div>
+        {{/each}}
+    </div>
+    {{/with}}
+</section>
+<hr>
+<footer>
+    <div class="row">
+        <ul class="nav">
+            {{#each footer}}
+            <div class="col-2">
+                {{#each this}}
+                <li class="nav-item px-3">
+                    <a class="nav-link {{#if @last}} disabled{{/if}}" target="blank">{{text}}</a>
+                </li>
+                {{/each}}
+            </div>
+            {{/each}}
+        </ul>
+    </div>
+</footer>
