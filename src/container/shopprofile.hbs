@@ -121,17 +121,13 @@
         <div class="card m-2">
             <div class="row">
                 {{#each buttons}}
-                <div class="col-4">
+                <div class="col-3 m-1">
                     {{#if isPrimary}}
                     <button href="{{link}}" target="blank" class="btn btn-sm btn-primary">{{text}}</button>
                     {{/if}}
-                </div>
-                <div class="col-4">
                     {{#if isSecondary}}
                     <button href="{{link}}" target="blank" class="btn btn-sm btn-secondary">{{text}}</button>
                     {{/if}}
-                </div>
-                <div class="col-3">
                     {{#if isDanger}}
                     <button href="{{link}}" target="blank" class="btn btn-sm btn-danger">{{text}}</button>
                     {{/if}}
