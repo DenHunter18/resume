@@ -1,0 +1,138 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<section class="mb-5">
+    <div class="card col-12">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="row nav-item px-2">
+                <a href="{{href}}" class="nav-link" target="blank">{{text}}</a>
+            </div>
+            {{/each}}
+            <div class="pt-2 ps-2">Disabled</div>
+        </div>
+        {{/with}}
+    </div>
+</section>
+
+<section class="mt-5 mb-5">
+
+    <div class="row breadcrumb mb-5 col-8">
+        {{#each breadcrumb}}
+        <div class="breadcrumb-item col-3">
+            {{#if url}}
+            <a href="{{url}}">{{name}}</a>
+            {{else}}
+            <a>{{name}}</a>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+    <h1 class="mb-5">{{header}}</h1>
+    <div class="row col-9">
+        {{#each sortBlock}}
+        <div class="col-4">
+            <select class="form-select">
+                <option>{{placeholder}}</option>
+                {{#each options}}
+                <option value="#">{{text}}</option>
+                {{/each}}
+            </select>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<section class="mt-5 mb-5">
+    <div class="row col-12">
+        <div class="card col-4">
+            {{#with filterBlock}}
+            {{#with sellers}}
+            <div class="form-label">{{title}}</div>
+            {{#each list}}
+            <div class="form-check">
+                <div class="col-1"><input type="checkbox" class="form-check-input"></div>
+                <div class="form-text col-11">{{value}}</div>
+            </div>
+            {{/each}}
+            {{/with}}
+            <hr>
+            {{#with brands}}
+            <div class="form-label">{{title}}</div>
+            {{#with input}}
+            <input placeholder="{{placeholder}}" class="form-control col-10 mb-2">
+            {{/with}}
+            {{#each options}}
+            <div class="form-check">
+                <div class="col-1"><input type="checkbox" class="form-check-input"></div>
+                <div class="form-text col-11">{{value}}</div>
+            </div>
+            {{/each}}
+            {{/with}}
+            <hr>
+            {{#with price}}
+            <div class="form-label">{{title}}</div>
+            {{#with range}}
+            <input placeholder="{{from}}" class="form-control col-10 mb-2">
+            <input placeholder="{{to}}" class="form-control col-10 mb-2">
+            {{/with}}
+            {{#with button}}
+            <button href="{{link}}" target="blank" class="btn btn-outline-secondary col-3 mb-2">{{text}}</button>
+            {{/with}}
+            {{/with}}
+            <hr>
+            {{#each filterList}}
+            <div class="form-label">{{title}}</div>
+            {{#each options}}
+            <div class="form-check">
+                <div class="col-1"><input type="checkbox" class="form-check-input"></div>
+                <div class="form-text col-11">{{value}}</div>
+            </div>
+            {{/each}}
+            <hr>
+            {{/each}}
+            {{/with}}
+        </div>
+        <div class="row col-8">
+            {{#each goodsList}}
+            {{> catalogItem}}
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<section class="mt-5 mb-5">
+    {{#with service}}
+    <div class="card text-center text-bg-success mb-5">
+        <h3 class="m-2">{{title}}</h3>
+        <p class="m-2">{{description}}</p>
+        {{#each buttons}}
+        <div class="text-center m-2">
+            <button href="{{link}}" target="blank" class="btn btn-center col-3 m-2 btn-primary">{{text}}</button>
+        </div>
+        {{/each}}
+    </div>
+    {{/with}}
+
+</section>
+
+<hr>
+
+<footer>
+    <div class="row">
+        <ul class="nav">
+            {{#each footer}}
+            <div class="col-2">
+                {{#each this}}
+                <li class="nav-item px-3">
+                    <a class="nav-link {{#if @last}} disabled{{/if}}" target="blank">{{text}}</a>
+                </li>
+                {{/each}}
+            </div>
+            {{/each}}
+        </ul>
+    </div>
+</footer>
