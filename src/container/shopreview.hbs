@@ -1,0 +1,138 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<section class="mb-5">
+    <div class="card col-12">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="row nav-item px-2">
+                <a href="{{href}}" class="nav-link" target="blank">{{text}}</a>
+            </div>
+            {{/each}}
+            <div class="pt-2 ps-2">Disabled</div>
+        </div>
+        {{/with}}
+    </div>
+</section>
+
+<section class="mt-5 mb-5">
+    {{#with formBlock}}
+    <div class="row">
+        <div class="col-8">
+            <h1 class="mb-5">{{header}}</h1>
+            {{#with rating}}
+            <div>{{title}}: {{value}}</div>
+            {{/with}}
+            {{#with actionBlock}}
+            <div class="nav nav-tabs mb-5">
+                {{#each tabs}}
+                <div class="row">
+                    <div class="nav-item">
+                        {{#if isActive}}
+                        <a href="#" class="nav-link active" target="blank">{{text}}</a>
+                        {{else}}
+                        <a href="#" class="nav-link disabled" target="blank">{{text}}</a>
+                        {{/if}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <hr>
+            {{#with report}}
+            <div class="card mb-5 mt-5">
+                <div class="card-title m-2">{{title}}</div>
+                {{#with button}}
+                <button href="{{link}}" target="blank" class="btn col-4 btn-secondary m-2">{{text}}</button>
+                {{/with}}
+            </div>
+            {{/with}}
+            {{/with}}
+            <hr>
+            {{#with feedbackBlock}}
+            <h2 class="mb-5">{{title}}</h2>
+            <div class="row mb-5">
+                {{#each buttons}}
+                <div class="col-4">
+                    {{#if isWarning}}
+                    <button href="{{link}}" target="blank" class="btn btn-sm btn-warning">{{text}}</button>
+                    {{/if}}
+                    {{#if isSuccess}}
+                    <button href="{{link}}" target="blank" class="btn btn-sm btn-success">{{text}}</button>
+                    {{/if}}
+                    {{#if isDanger}}
+                    <button href="{{link}}" target="blank" class="btn btn-sm btn-danger">{{text}}</button>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+        {{#with goodsInfo}}
+        <div class="col-4">
+            <div class="card mb-2">
+                <img src="{{photo}}" width="200px" class="m-2">
+                <div class="m-2">{{name}}</div>
+            </div>
+            <div class="card mb-2">
+                <h5 class="m-2">{{price}}</h5>
+                {{#if inMarket}}
+                <div class="m-2">Є в наявності</div>
+                {{/if}}
+                {{#each buttons}}
+                {{#if isPrimary}}
+                <button href="{{link}}" target="blank" class="btn btn-sm col-3 m-2 btn-primary">{{text}}</button>
+                {{/if}}
+                {{#if isSecondary}}
+                <button href="{{link}}" target="blank" class="btn btn-sm col-6 m-2 btn-secondary">{{text}}</button>
+                {{/if}}
+                {{/each}}
+            </div>
+            <div class="card mb-2">
+                {{#with seller}}
+                <div class="m-2">{{title}}: <b>{{value}}</b></div>
+                {{/with}}
+            </div>
+        </div>
+    </div>
+    {{/with}}
+    {{/with}}
+</section>
+<hr>
+<section class="mt-5 mb-5">
+    {{#each reviewList}}
+    {{> reviewItem}}
+    {{/each}}
+    {{#with service}}
+    <div class="card text-center text-bg-success mb-5">
+        <h3 class="m-2">{{title}}</h3>
+        <p class="m-2">{{description}}</p>
+        {{#each buttons}}
+        <div class="text-center m-2">
+            <button href="{{link}}" target="blank" class="btn btn-center col-3 m-2 btn-primary">{{text}}</button>
+        </div>
+        {{/each}}
+
+    </div>
+    {{/with}}
+</section>
+
+<hr>
+
+<footer>
+    <div class="row">
+        <ul class="nav">
+            {{#each footer}}
+            <div class="col-2">
+                {{#each this}}
+                <li class="nav-item px-3">
+                    <a class="nav-link {{#if @last}} disabled{{/if}}" target="blank">{{text}}</a>
+                </li>
+                {{/each}}
+            </div>
+            {{/each}}
+        </ul>
+    </div>
+</footer>
