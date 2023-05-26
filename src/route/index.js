@@ -3884,6 +3884,134 @@ router.get('/shopcatalog', function (req, res) {
 })
 
 // ================================================================
+// router.get Створює нам один ентпоїнт
+
+//           ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/index8', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('index8', {
+    layout: 'index',
+    title: {
+      name: 'Denys',
+      surname: 'Kovyrnov',
+      description: 'Resume Project',
+    },
+    projects: {
+      title: 'Список сторінок',
+      information:
+        ' Project has made after learning HTML and Bootstrap',
+      buttons: [
+        {
+          text: 'Skills',
+          link: '/skills',
+          isPrimary: true,
+        },
+        {
+          text: 'Summary',
+          link: '/summary',
+          isPrimary: true,
+        },
+        {
+          text: 'Work',
+          link: '/work',
+          isPrimary: true,
+        },
+        {
+          text: 'Bio',
+          link: '/bio',
+          isPrimary: true,
+        },
+        {
+          text: 'Web',
+          link: '/web',
+          isPrimary: true,
+        },
+        {
+          text: 'Car',
+          link: '/car',
+          isPrimary: true,
+        },
+        {
+          text: 'Education',
+          link: '/education',
+          isPrimary: true,
+        },
+        {
+          text: 'Facebook',
+          link: '/facebook',
+          isPrimary: true,
+        },
+        {
+          text: 'Mac',
+          link: '/mac',
+          isPrimary: true,
+        },
+        {
+          text: 'Person',
+          link: '/person',
+          isPrimary: true,
+        },
+        {
+          text: 'Program',
+          link: '/program',
+          isPrimary: true,
+        },
+        {
+          text: 'Task21',
+          link: '/task21',
+          isPrimary: true,
+        },
+        {
+          text: 'Task22',
+          link: '/task22',
+          isPrimary: true,
+        },
+        {
+          text: 'Task31',
+          link: '/task31',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopcart',
+          link: '/shopcart',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopcatalog',
+          link: '/shopcatalog',
+          isPrimary: true,
+        },
+        {
+          text: 'Shophome',
+          link: '/shophome',
+          isPrimary: true,
+        },
+        {
+          text: 'Shoporder',
+          link: '/shoporder',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopprofile',
+          link: '/shopprofile',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopreview',
+          link: '/shopreview',
+          isPrimary: true,
+        },
+        {
+          text: 'Js',
+          link: '/js',
+          isPrimary: true,
+        },
+      ],
+    },
+  })
+})
 
 // Підключаємо роутер до бек-енду
 module.exports = router
