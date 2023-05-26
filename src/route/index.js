@@ -3884,6 +3884,134 @@ router.get('/shopcatalog', function (req, res) {
 })
 
 // ================================================================
+// router.get Створює нам один ентпоїнт
+
+//           ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/index8', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('index8', {
+    layout: 'index',
+    title: {
+      name: 'Denys',
+      surname: 'Kovyrnov',
+      description: 'Resume Project',
+    },
+    projects: {
+      title: 'Список сторінок',
+      information:
+        ' Project has made after learning HTML and Bootstrap',
+      buttons: [
+        {
+          text: 'Skills',
+          link: 'http://localhost:3000/skills',
+          isPrimary: true,
+        },
+        {
+          text: 'Summary',
+          link: 'http://localhost:3000/summary',
+          isPrimary: true,
+        },
+        {
+          text: 'Work',
+          link: 'http://localhost:3000/work',
+          isPrimary: true,
+        },
+        {
+          text: 'Bio',
+          link: 'http://localhost:3000/bio',
+          isPrimary: true,
+        },
+        {
+          text: 'Web',
+          link: 'http://localhost:3000/web',
+          isPrimary: true,
+        },
+        {
+          text: 'Car',
+          link: 'http://localhost:3000/car',
+          isPrimary: true,
+        },
+        {
+          text: 'Education',
+          link: 'http://localhost:3000/education',
+          isPrimary: true,
+        },
+        {
+          text: 'Facebook',
+          link: 'http://localhost:3000/facebook',
+          isPrimary: true,
+        },
+        {
+          text: 'Mac',
+          link: 'http://localhost:3000/mac',
+          isPrimary: true,
+        },
+        {
+          text: 'Person',
+          link: 'http://localhost:3000/person',
+          isPrimary: true,
+        },
+        {
+          text: 'Program',
+          link: 'http://localhost:3000/program',
+          isPrimary: true,
+        },
+        {
+          text: 'Task21',
+          link: 'http://localhost:3000/task21',
+          isPrimary: true,
+        },
+        {
+          text: 'Task22',
+          link: 'http://localhost:3000/task22',
+          isPrimary: true,
+        },
+        {
+          text: 'Task31',
+          link: 'http://localhost:3000/task31',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopcart',
+          link: 'http://localhost:3000/shopcart',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopcatalog',
+          link: 'http://localhost:3000/shopcatalog',
+          isPrimary: true,
+        },
+        {
+          text: 'Shophome',
+          link: 'http://localhost:3000/shophome',
+          isPrimary: true,
+        },
+        {
+          text: 'Shoporder',
+          link: 'http://localhost:3000/shoporder',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopprofile',
+          link: 'http://localhost:3000/shopprofile',
+          isPrimary: true,
+        },
+        {
+          text: 'Shopreview',
+          link: 'http://localhost:3000/shopreview',
+          isPrimary: true,
+        },
+        {
+          text: 'Js',
+          link: 'http://localhost:3000/js',
+          isPrimary: true,
+        },
+      ],
+    },
+  })
+})
 
 // Підключаємо роутер до бек-енду
 module.exports = router
